@@ -1,6 +1,8 @@
 name: ReleaseZipCI
 
 on:
+  push:
+    branches: [ master ]
   release:
     types: [ created ]
 
@@ -11,5 +13,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Zip Folder
       run: zip -r extension.zip ./extension/
-    - name: Release to Github
-      run: echo "Release"
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with: 
+        name: extension zip
+        path: ./extension.zip
