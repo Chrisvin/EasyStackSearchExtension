@@ -14,5 +14,5 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with: 
-        name: extension zip
+        name: extension
         path: ./extension/
