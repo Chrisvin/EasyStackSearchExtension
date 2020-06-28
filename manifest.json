@@ -8,7 +8,7 @@
     "omnibox": { "keyword" : "so" },
 
     "background": {
-        "scripts": ["search.js"],
+        "scripts": ["background.js"],
         "persistent": false
     },
 
