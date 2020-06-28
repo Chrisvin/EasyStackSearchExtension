@@ -1,0 +1,15 @@
+name: ReleaseZipCI
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Zip Folder
+      run: zip -r extension.zip ./extension/
+    - name: Release to Github
+      run: echo "Release"
