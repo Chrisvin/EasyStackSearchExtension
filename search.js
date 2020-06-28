@@ -15,4 +15,9 @@ chrome.omnibox.onInputEntered.addListener(
     });  
 });
 
+// Suggest specific questions as text is being typed.
+chrome.omnibox.onInputChanged.addListener(
+  function(query, suggestFn) {
+    // TODO: Use StackOverflow api to get list of questions and sort them based on relevance.
+  }
 )
