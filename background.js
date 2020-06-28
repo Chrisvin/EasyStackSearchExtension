@@ -6,10 +6,11 @@ chrome.omnibox.onInputEntered.addListener(
     var prefix = 'https://'
     var postfix = '/search?q='
     var seURL = 'www.stackoverflow.com'
-    //TODO: Add support to change seURL for different SE sites.
+    // TODO: Add support to change seURL for different SE sites.
     
     var finalURL = prefix + seURL + postfix + encodeURIComponent(text);
     
+    // TODO: Open url in current/new tab based on user settings.
     chrome.tabs.getSelected(null, function(tab) {
       chrome.tabs.update(tab.id, {url: finalURL});
     });  
