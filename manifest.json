@@ -1,0 +1,8 @@
+{
+    "manifest_version": 2,
+    "version": "1.0",
+    
+    "name": "Stack Overflow Search",
+    "description" : "A simple extension to search stackexchange sites from chrome address bar.",
+    
+}
