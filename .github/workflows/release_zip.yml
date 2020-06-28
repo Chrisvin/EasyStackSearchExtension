@@ -11,10 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Zip Folder
-      run: zip -r extension.zip ./extension/
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with: 
         name: extension zip
-        path: ./extension.zip
+        path: ./extension/
