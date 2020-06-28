@@ -5,4 +5,15 @@
     "name": "Stack Overflow Search",
     "description" : "A simple extension to search stackexchange sites from chrome address bar.",
     
+    "omnibox": { "keyword" : "so" },
+
+    "background": {
+        "scripts": ["search.js"],
+        "persistent": false
+    },
+
+    "permissions": [
+        "tabs",
+        "https://www.stackoverflow.com/*"
+    ]
 }
