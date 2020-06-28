@@ -3,9 +3,22 @@
     "version": "1.0",
     
     "name": "Stack Overflow Search",
-    "description" : "A simple extension to search stackexchange sites from chrome address bar.",
+    "description" : "Adds an 'so' omnibox command to search Stack Overflow.",
+
+    "icons": {
+        "16": "icons/search_black_16.png",
+        "18": "icons/search_black_18dp.png",
+        "24": "icons/search_black_24dp.png",
+        "36": "icons/search_black_36dp.png",
+        "48": "icons/search_black_48dp.png"
+    },
     
-    "omnibox": { "keyword" : "so" },
+    "omnibox": { 
+        "keyword" : "so",
+        "icons": {
+            "16": "icons/search_black_16.png"
+        }
+    },
 
     "background": {
         "scripts": ["background.js"],
