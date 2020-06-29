@@ -1,5 +1,19 @@
 'use strict';
 
+function openTab(searchUrl) {
+  chrome.storage.sync.get({
+    shouldOpenInSameTab: true
+  }, function(items) {
+    if (items.shouldOpenInSameTab) {
+      chrome.tabs.getSelected(null, function(tab) {
+        chrome.tabs.update(tab.id, {url: searchUrl});
+      });
+    } else {
+      chrome.tabs.create({ url: searchUrl });
+    }
+  });
+}
+
 // Open stackoverflow search in same tab when input is entered
 chrome.omnibox.onInputEntered.addListener(
   function(text) {
@@ -10,10 +24,7 @@ chrome.omnibox.onInputEntered.addListener(
     
     var finalURL = prefix + seURL + postfix + encodeURIComponent(text);
     
-    // TODO: Open url in current/new tab based on user settings.
-    chrome.tabs.getSelected(null, function(tab) {
-      chrome.tabs.update(tab.id, {url: finalURL});
-    });  
+    openTab(finalURL);
 });
 
 // Suggest specific questions as text is being typed.
