@@ -1,4 +1,12 @@
+var alertTimeout;
 
+function showSavedAlert() {
+    clearTimeout(alertTimeout);
+    $(".alert").addClass("show");
+    alertTimeout = setTimeout(function() {
+        $(".alert").removeClass("show");
+    }, 750);
+}
 
 function setupOptions() {
 
