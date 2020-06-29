@@ -8,8 +8,7 @@ function showSavedAlert() {
     }, 750);
 }
 
-function setupOptions() {
-
+function setInitialState() {
     chrome.storage.sync.get({
         shouldOpenInSameTab: true
     }, function(items) {
@@ -19,7 +18,9 @@ function setupOptions() {
             document.getElementById('new_tab_result').checked = true;
         }
     });
-    
+}
+
+function setListeners() {
     $(".save_tab_result").on("change", function() {
         chrome.storage.sync.set({
             shouldOpenInSameTab: $("#same_tab_result").is(":checked")
@@ -29,4 +30,5 @@ function setupOptions() {
     });
 }
 
-setupOptions();
+setInitialState();
+setListeners();
