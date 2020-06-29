@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Test Extension Options</title>
+    </head>
+    <body>
+        <button id="permission_request">Provide permissions</button>
+        <h4>Should search result:</h4>
+        <div class="btn-group" data-toggle="buttons">
+            <input type="radio" id="same_tab_radio" name="search_tab_result" value="same_tab_radio">
+            <label for="same_tab_radio">Open in <b>same</b> tab</label>
+            <br/>
+            <input type="radio" id="add_tab_radio" name="search_tab_result" value="add_tab_radio">
+            <label for="add_tab_radio">Open in <b>new</b> tab</label>
+        </div>
+
+        <div id="status"></div>
+        <button id="save">Save</button>
+
+        <script src="options.js"></script>
+    </body>
+</html>
