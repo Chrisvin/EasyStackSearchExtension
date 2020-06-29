@@ -1,0 +1,21 @@
+.alert {
+    position: absolute;
+    bottom: 0px;
+    left: 8px;
+    right: 8px;
+}
+
+.container {
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.jumbotron {
+    padding: 0.5rem 0.25rem;
+}
+
+@media (min-width:576px) {
+    .jumbotron {
+        padding: 1rem 0.5rem;
+    }
+}
