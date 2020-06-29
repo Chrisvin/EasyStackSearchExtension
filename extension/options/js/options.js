@@ -19,19 +19,14 @@ function setupOptions() {
             document.getElementById('new_tab_result').checked = true;
         }
     });
-
-    $("#save_options").click(function() {
+    
+    $(".save_tab_result").on("change", function() {
         chrome.storage.sync.set({
             shouldOpenInSameTab: $("#same_tab_result").is(":checked")
         }, function(items) {
-            $(".alert").addClass("show");
-            setTimeout(function() {
-                $("#save_options").blur();
-                $(".alert").removeClass("show");
-            }, 750);
+            showSavedAlert();
         });
-    });;
-
+    });
 }
 
 setupOptions();
