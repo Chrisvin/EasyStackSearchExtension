@@ -19,13 +19,17 @@
     },
 
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "backgroundOmnibox.js",
+            "backgroundContextMenus.js"
+        ],
         "persistent": false
     },
 
     "options_page": "options/options.html",
 
     "permissions": [
-        "storage"
+        "storage",
+        "contextMenus"
     ]    
 }
