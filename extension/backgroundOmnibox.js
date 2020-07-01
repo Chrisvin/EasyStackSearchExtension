@@ -9,7 +9,9 @@ function openTab(searchUrl) {
         chrome.tabs.update(tab.id, {url: searchUrl});
       });
     } else {
-      chrome.tabs.create({ url: searchUrl });
+      chrome.tabs.getSelected(null, function(tab) {
+        chrome.tabs.create({url: searchUrl, index: tab.index + 1});
+      });
     }
   });
 }
