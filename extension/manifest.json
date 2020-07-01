@@ -20,8 +20,8 @@
 
     "background": {
         "scripts": [
-            "backgroundOmnibox.js",
-            "backgroundContextMenus.js"
+            "background/omnibox.js",
+            "background/contextMenus.js"
         ],
         "persistent": false
     },

@@ -4,7 +4,7 @@
 chrome.runtime.onInstalled.addListener(function() {
     chrome.contextMenus.create({
         id: "stack_overflow_search_context_id",
-        title: "Search in StackOverflow",
+        title: "Search in Stack Overflow",
         type: 'normal',
         contexts: ['selection'],
     });
