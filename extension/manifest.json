@@ -3,7 +3,7 @@
     "version": "1.3.0",
     
     "name": "Stack Overflow Search",
-    "description" : "Adds an 'so' omnibox command to search Stack Overflow.",
+    "description" : "A lightweight extension to make searching Stack Overflow easier & quicker",
 
     "icons": {
         "16": "icons/16.png",
