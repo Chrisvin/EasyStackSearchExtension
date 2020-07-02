@@ -13,7 +13,7 @@ function setInitialState() {
         shouldOpenInSameTab: true,
         questionsWithCodeFilter: false,
         communityWikisFilter: false,
-        duplicateQuestionsFilter: false,
+        excludeDuplicateQuestionsFilter: false,
         answerTypeFilter: 0,
         customFilter: ""
     }, function(items) {
@@ -24,7 +24,7 @@ function setInitialState() {
         }
         document.getElementById('question_with_code').checked = items.questionsWithCodeFilter;
         document.getElementById('community_wikis').checked = items.communityWikisFilter;
-        document.getElementById('duplicate_questions').checked = items.duplicateQuestionsFilter;
+        document.getElementById('exclude_duplicate_questions').checked = items.excludeDuplicateQuestionsFilter;
         document.getElementById('answer_type').options.selectedIndex = items.answerTypeFilter;
         document.getElementById('custom_filter').value = items.customFilter;
     });
@@ -52,9 +52,9 @@ function setListeners() {
             showSavedAlert();
         });
     });
-    $("#duplicate_questions").on("change", function() {
+    $("#exclude_duplicate_questions").on("change", function() {
         chrome.storage.sync.set({
-            duplicateQuestionsFilter: this.checked
+            excludeDuplicateQuestionsFilter: this.checked
         }, function() {
             showSavedAlert();
         });
