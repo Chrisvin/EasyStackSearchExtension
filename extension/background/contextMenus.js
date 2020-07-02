@@ -24,10 +24,10 @@ function getFilterString(
                 filterString += "answers:1 ";
                 break;
             case 2:
-                filterString += "hasaccepted:true";
+                filterString += "hasaccepted:true ";
                 break;
             case 3:
-                filterString += "isanswered:true";
+                filterString += "isanswered:true ";
                 break;
             default:
                 break;
