@@ -75,5 +75,21 @@ chrome.omnibox.onInputChanged.addListener(
     // TODO: Provide user the option to choose which of the following two options will be used to provide suggestions.
     // TODO: Use StackOverflow api to get list of questions and sort them based on relevance.
     // TODO: Use filters provided by user to show suggestions
+
+    chrome.storage.sync.get({
+      questionsWithCodeFilter: false,
+      communityWikisFilter: false,
+      excludeDuplicateQuestionsFilter: false,
+      answerTypeFilter: 0,
+      customFilter: ""
+    }, function(items) {
+
+      var filterString = getFilterString(
+        items.questionsWithCodeFilter, 
+        items.communityWikisFilter, 
+        items.excludeDuplicateQuestionsFilter, 
+        items.answerTypeFilter, 
+        items.customFilter);
+      chrome.omnibox.setDefaultSuggestion({ description: filterString + query });
   }
 )
