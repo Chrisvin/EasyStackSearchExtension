@@ -18,8 +18,7 @@ function getFilterString(
         if (excludeDuplicateQuestionsFilter) {
             filterString += "duplicate:false ";
         }
-        switch (answerTypeFilter) {
-            //TODO: Fix me, I don't work for some reason. :(
+        switch (parseInt(answerTypeFilter)) {
             case 1:
                 filterString += "answers:1 ";
                 break;
