@@ -27,6 +27,8 @@ function setInitialState() {
         document.getElementById('exclude_duplicate_questions').checked = items.excludeDuplicateQuestionsFilter;
         document.getElementById('answer_type').options.selectedIndex = items.answerTypeFilter;
         document.getElementById('custom_filter').value = items.customFilter;
+
+        $(":input").attr('disabled', false);
     });
 }
 

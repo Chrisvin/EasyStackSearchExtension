@@ -28,13 +28,13 @@
                     </legend>
                     <div class="col-sm-12">
                         <div class="form-check save_tab_result">
-                            <input class="form-check-input" type="radio" name="tab_result" id="same_tab_result" value="same_tab_result" checked>
+                            <input class="form-check-input" type="radio" name="tab_result" id="same_tab_result" value="same_tab_result" checked disabled>
                             <label class="form-check-label" for="same_tab_result">
                                 same tab
                             </label>
                         </div>
                         <div class="form-check save_tab_result">
-                            <input class="form-check-input" type="radio" name="tab_result" id="new_tab_result" value="new_tab_result">
+                            <input class="form-check-input" type="radio" name="tab_result" id="new_tab_result" value="new_tab_result" disabled>
                             <label class="form-check-label" for="new_tab_result">
                                 new tab
                             </label>
@@ -53,24 +53,24 @@
 
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="question_with_code" id="question_with_code">
+                                <input class="form-check-input" type="checkbox" name="question_with_code" id="question_with_code" disabled>
                                 Questions that contain code
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="community_wikis" id="community_wikis">
+                                <input class="form-check-input" type="checkbox" name="community_wikis" id="community_wikis" disabled>
                                 Community wiki posts (<a href="https://meta.stackexchange.com/questions/11740/what-are-community-wiki-posts" target="_blank">reference</a>)
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="exclude_duplicate_questions" id="exclude_duplicate_questions">
+                                <input class="form-check-input" type="checkbox" name="exclude_duplicate_questions" id="exclude_duplicate_questions" disabled>
                                 Exclude duplicate questions
                             </label>
                         </div>
                         <div class="form-group" style="margin-top: 0.5rem;">
-                            <select class="form-control" name="answer_type" id="answer_type">
+                            <select class="form-control" name="answer_type" id="answer_type" disabled>
                                 <option value="0">All questions</option>
                                 <option value="1">Questions with answers</option>
                                 <option value="2">Questions with accepted answers</option>
@@ -80,7 +80,7 @@
 
                         <div class="form-group" style="margin-top: 0.5rem;">
                             <label for="custom_filter"><u>Add custom filters</u>:</label> (<a href="https://stackoverflow.com/help/searching" target="_blank">filters reference</a>)
-                            <input type="text" class="form-control" name="custom_filter" id="custom_filter">
+                            <input type="text" class="form-control" name="custom_filter" id="custom_filter" disabled>
                         </div>
   
                     </div>
