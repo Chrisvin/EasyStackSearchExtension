@@ -1,17 +1,47 @@
 'use strict';
 
-function openTab(searchUrl) {
-  chrome.storage.sync.get({
-    shouldOpenInSameTab: true
-  }, function(items) {
-    if (items.shouldOpenInSameTab) {
-      chrome.tabs.getSelected(null, function(tab) {
+function getFilterString(
+  questionsWithCodeFilter,
+  communityWikisFilter,
+  excludeDuplicateQuestionsFilter,
+  answerTypeFilter,
+  customFilter
+  ) {
+      var filterString = "";
+      if (questionsWithCodeFilter) {
+          filterString += "hascode:true ";
+      }
+      if (communityWikisFilter) {
+          filterString += "wiki:true ";
+      }
+      if (excludeDuplicateQuestionsFilter) {
+          filterString += "duplicate:false ";
+      }
+      switch (parseInt(answerTypeFilter)) {
+          case 1:
+              filterString += "answers:1 ";
+              break;
+          case 2:
+              filterString += "hasaccepted:true ";
+              break;
+          case 3:
+              filterString += "isanswered:true ";
+              break;
+          default:
+              break;
+      }
+      if (customFilter) {
+          filterString += customFilter+" ";
+      }
+      return filterString;
+}
+
+function openTab(searchUrl, shouldOpenInSameTab) {
+  chrome.tabs.getSelected(null, function(tab) {
+    if (shouldOpenInSameTab) { 
         chrome.tabs.update(tab.id, {url: searchUrl});
-      });
     } else {
-      chrome.tabs.getSelected(null, function(tab) {
         chrome.tabs.create({url: searchUrl, index: tab.index + 1});
-      });
     }
   });
 }
@@ -19,14 +49,24 @@ function openTab(searchUrl) {
 // Open stackoverflow search in same tab when input is entered
 chrome.omnibox.onInputEntered.addListener(
   function(text) {
-    var prefix = 'https://'
-    var postfix = '/search?q='
-    var seURL = 'www.stackoverflow.com'
-    // TODO: Add support to change seURL for different SE sites.
-    
-    var finalURL = prefix + seURL + postfix + encodeURIComponent(text);
-    
-    openTab(finalURL);
+    chrome.storage.sync.get({
+      baseUrl: "https://www.stackoverflow.com/search?q=",
+      shouldOpenInSameTab: true,
+      questionsWithCodeFilter: false,
+      communityWikisFilter: false,
+      excludeDuplicateQuestionsFilter: false,
+      answerTypeFilter: 0,
+      customFilter: ""
+  }, function(items) {
+      let filterString = getFilterString(
+          items.questionsWithCodeFilter, 
+          items.communityWikisFilter, 
+          items.excludeDuplicateQuestionsFilter, 
+          items.answerTypeFilter, 
+          items.customFilter);
+      var finalURL = items.baseUrl + encodeURIComponent(filterString + text);
+      openTab(finalURL, items.shouldOpenInSameTab);
+    });
 });
 
 // Suggest specific questions as text is being typed.

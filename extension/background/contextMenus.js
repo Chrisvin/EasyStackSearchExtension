@@ -48,6 +48,7 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.contextMenus.onClicked.addListener(function(item, tab) {
     chrome.storage.sync.get({
+        baseUrl: "https://www.stackoverflow.com/search?q=",
         questionsWithCodeFilter: false,
         communityWikisFilter: false,
         excludeDuplicateQuestionsFilter: false,
@@ -60,8 +61,7 @@ chrome.contextMenus.onClicked.addListener(function(item, tab) {
             items.excludeDuplicateQuestionsFilter, 
             items.answerTypeFilter, 
             items.customFilter);
-        let searchText = filterString + item.selectionText;
-        let searchUrl = "https://www.stackoverflow.com/search?q="+encodeURIComponent(searchText)
+        let searchUrl = items.baseUrl + encodeURIComponent(filterString + item.selectionText)
         chrome.tabs.create({url: searchUrl, index: tab.index + 1});
     });
 });
