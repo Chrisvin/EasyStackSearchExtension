@@ -8,7 +8,7 @@ function getFilterString(
     answerTypeFilter,
     customFilter
     ) {
-        var filterString = customFilter+" ";
+        var filterString = "";
         if (questionsWithCodeFilter) {
             filterString += "hascode:true ";
         }
@@ -31,6 +31,9 @@ function getFilterString(
                 break;
             default:
                 break;
+        }
+        if (customFilter) {
+            filterString += customFilter+" ";
         }
         return filterString;
 }
