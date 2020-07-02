@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "version": "1.4.0",
+    "version": "1.4.1",
     
     "name": "Stack Overflow Search",
     "description" : "A lightweight extension to make searching Stack Overflow easier & quicker",
