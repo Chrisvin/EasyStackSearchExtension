@@ -66,7 +66,8 @@ function setInitialState() {
         communityWikisFilter: false,
         excludeDuplicateQuestionsFilter: false,
         answerTypeFilter: 0,
-        customFilter: ""
+        customFilter: "",
+        filterSuggestions: []
     }, function(items) {
         if (items.shouldOpenInSameTab) {
             document.getElementById('same_tab_result').checked = true;
@@ -80,6 +81,24 @@ function setInitialState() {
         document.getElementById('custom_filter').value = items.customFilter;
 
         $(":input").attr('disabled', false);
+
+        $("#add_suggestion_filter").click(function() {
+            addFilterSuggestionDiv();
+        });
+
+        $("#filter_suggestion_count").on("change", function() {
+            if (this.value < 7) {
+                $("#add_suggestion_filter").show();
+            } else {
+                $("#add_suggestion_filter").hide();
+            }
+        });
+
+        var i, len = items.filterSuggestions.length;
+        for (i=0;i<len;i++) {
+            mFilterSuggestions[i] = items.filterSuggestions[i];
+            addFilterSuggestionDiv(i)
+        }
     });
 }
 
