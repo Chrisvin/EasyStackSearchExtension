@@ -20,3 +20,18 @@
         padding: 1rem 0.5rem;
     }
 }
+
+.c-inline {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-flex:0;
+    -ms-flex:0 0 auto;
+    flex:0 0 auto;
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    margin-bottom:0
+}
