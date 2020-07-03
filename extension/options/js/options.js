@@ -100,9 +100,13 @@ function setInitialState() {
         });
 
         var i, len = items.filterSuggestions.length;
+        var latestFilterIndex = 0;
         for (i=0;i<len;i++) {
-            mFilterSuggestions[i] = items.filterSuggestions[i];
-            addFilterSuggestionDiv(i)
+            if (items.filterSuggestions[i]) {
+                mFilterSuggestions[latestFilterIndex] = items.filterSuggestions[i];
+                addFilterSuggestionDiv();
+                latestFilterIndex++;
+            }
         }
     });
 }
