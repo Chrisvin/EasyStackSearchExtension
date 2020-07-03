@@ -26,8 +26,9 @@ function saveFilterSuggestions(showAlert = true) {
     }, 500);
 }
 
-function addFilterSuggestionDiv(index) {
+function addFilterSuggestionDiv() {
     let count = $("#filter_suggestion_count");
+    var index = parseInt(count.val());
 
     let img = $('<img>', {
         class: "close",
