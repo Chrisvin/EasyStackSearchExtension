@@ -34,8 +34,13 @@ function addFilterSuggestionDiv(index) {
         value: index
     });
     img.click(function() {
-        document.getElementById("filter_suggestion_" + index).value = "";
-        mFilterSuggestions[index] = "";
+        var i, len = parseInt(count.val());
+        for (i=index;i<len-1;i++) {
+            document.getElementById("filter_suggestion_" + i).value = document.getElementById("filter_suggestion_" + (i+1)).value;
+            mFilterSuggestions[i] = mFilterSuggestions[i+1];
+        }
+        document.getElementById("filter_suggestion_" + (len-1)).value = "";
+        mFilterSuggestions[len-1] = "";
         saveFilterSuggestions();
     });
 
