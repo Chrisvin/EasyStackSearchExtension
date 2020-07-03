@@ -1,5 +1,6 @@
 var alertTimeout;
 
+var filterSuggestionsTimeout;
 var customFilterTimeout;
 
 function showSavedAlert() {
@@ -10,6 +11,18 @@ function showSavedAlert() {
     }, 750);
 }
 
+var mFilterSuggestions = ["", "", "", "", "", "", ""];
+
+function saveFilterSuggestions() {
+    clearTimeout(filterSuggestionsTimeout);
+    filterSuggestionsTimeout = setTimeout(function() {
+        chrome.storage.sync.set({
+            filterSuggestions: mFilterSuggestions
+        }, function() {
+            showSavedAlert();
+        });
+    }, 250);
+}
 function setInitialState() {
     chrome.storage.sync.get({
         shouldOpenInSameTab: true,
