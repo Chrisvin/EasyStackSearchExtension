@@ -13,13 +13,15 @@ function showSavedAlert() {
 
 var mFilterSuggestions = ["", "", "", "", "", "", ""];
 
-function saveFilterSuggestions() {
+function saveFilterSuggestions(showAlert = true) {
     clearTimeout(filterSuggestionsTimeout);
     filterSuggestionsTimeout = setTimeout(function() {
         chrome.storage.sync.set({
             filterSuggestions: mFilterSuggestions
         }, function() {
-            showSavedAlert();
+            if (showAlert) {
+                showSavedAlert();
+            }
         });
     }, 500);
 }
@@ -108,6 +110,7 @@ function setInitialState() {
                 latestFilterIndex++;
             }
         }
+        saveFilterSuggestions(false);
     });
 }
 
