@@ -72,9 +72,8 @@ chrome.omnibox.onInputEntered.addListener(
 // Suggest specific questions as text is being typed.
 chrome.omnibox.onInputChanged.addListener(
   function(query, suggest) {
-    // TODO: Provide user the option to choose which of the following two options will be used to provide suggestions.
+    // TODO: Provide user the option to choose whether question suggestions or filter suggestions will be shown.
     // TODO: Use StackOverflow api to get list of questions and sort them based on relevance.
-    // TODO: Use filters provided by user to show suggestions
 
     chrome.storage.sync.get({
       questionsWithCodeFilter: false,
