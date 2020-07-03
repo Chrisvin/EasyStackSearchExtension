@@ -21,7 +21,7 @@ function saveFilterSuggestions() {
         }, function() {
             showSavedAlert();
         });
-    }, 250);
+    }, 500);
 }
 
 function addFilterSuggestionDiv(index) {
@@ -146,7 +146,7 @@ function setListeners() {
             }, function() {
                 showSavedAlert();
             });
-        }, 250);
+        }, 500);
     });
 }
 
