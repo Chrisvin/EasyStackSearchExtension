@@ -1,5 +1,7 @@
 var alertTimeout;
 
+var customFilterTimeout;
+
 function showSavedAlert() {
     clearTimeout(alertTimeout);
     $(".alert").addClass("show");
@@ -69,11 +71,14 @@ function setListeners() {
         });
     });
     $("#custom_filter").on("input", function() {
-        chrome.storage.sync.set({
-            customFilter: this.value
-        }, function() {
-            showSavedAlert();
-        });
+        clearTimeout(customFilterTimeout);
+        customFilterTimeout = setTimeout(function() {
+            chrome.storage.sync.set({
+                customFilter: this.value
+            }, function() {
+                showSavedAlert();
+            });
+        }, 250);
     });
 }
 
