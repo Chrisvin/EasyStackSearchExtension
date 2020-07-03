@@ -81,7 +81,8 @@ chrome.omnibox.onInputChanged.addListener(
       communityWikisFilter: false,
       excludeDuplicateQuestionsFilter: false,
       answerTypeFilter: 0,
-      customFilter: ""
+      customFilter: "",
+      filterSuggestions: []
     }, function(items) {
 
       var filterString = getFilterString(
@@ -91,5 +92,20 @@ chrome.omnibox.onInputChanged.addListener(
         items.answerTypeFilter, 
         items.customFilter);
       chrome.omnibox.setDefaultSuggestion({ description: filterString + query });
+
+      var suggestions = [];
+      var suggestion = "";
+      
+      var i, sLength = items.filterSuggestions.length;
+
+      for (i=0;i<sLength;i++) {
+        if (items.filterSuggestions[i]) {
+          suggestion = items.filterSuggestions[i] + " " + query;
+          suggestions.push({ content: suggestion, description: suggestion });
+        }
+      }
+
+      suggest(suggestions);
+    });
   }
 )
