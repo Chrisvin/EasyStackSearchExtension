@@ -23,6 +23,42 @@ function saveFilterSuggestions() {
         });
     }, 250);
 }
+
+function addFilterSuggestionDiv(index) {
+    let count = $("#filter_suggestion_count");
+
+    let img = $('<img>', {
+        class: "close",
+        src: "../icons/cancel-black-24dp.svg",
+        style: "margin-right: 0.5rem;",
+        value: index
+    });
+    img.click(function() {
+        document.getElementById("filter_suggestion_" + index).value = "";
+        mFilterSuggestions[index] = "";
+        saveFilterSuggestions();
+    });
+
+    let filterSuggestion = $('<input>', {
+        type: "text",
+        class: "form-control",
+        value: mFilterSuggestions[index],
+        id: "filter_suggestion_" + index,
+    });
+    filterSuggestion.on('input', function() {
+        mFilterSuggestions[index] = this.value;
+        saveFilterSuggestions();
+    });
+
+    $("#filter_suggestion_container").append(
+        $('<div>', { class: "c-inline", id:"filter_suggestion_div_"+index, style:"margin-top: 0.5rem;"}).append(
+            img, filterSuggestion
+        )
+    );
+
+    count.val(parseInt(count.val()) + 1).trigger('change');
+}
+
 function setInitialState() {
     chrome.storage.sync.get({
         shouldOpenInSameTab: true,
