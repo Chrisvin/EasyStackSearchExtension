@@ -1,2 +1,2 @@
-A simple extension to search Stack Overflow from chrome address bar.
 # Easy Stack Search - Chrome Extension
+A lightweight extension that makes searching Stack sites like StackOverflow quick & easy.
