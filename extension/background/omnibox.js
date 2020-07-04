@@ -51,6 +51,7 @@ chrome.omnibox.onInputEntered.addListener(
   function(text) {
     chrome.storage.sync.get({
       baseUrl: "https://www.stackoverflow.com/search?q=",
+      sortOrder: 0,
       shouldOpenInSameTab: true,
       questionsWithCodeFilter: false,
       communityWikisFilter: false,
@@ -65,6 +66,19 @@ chrome.omnibox.onInputEntered.addListener(
           items.answerTypeFilter, 
           items.customFilter);
       var finalURL = items.baseUrl + encodeURIComponent(filterString + text);
+      switch(parseInt(items.sortOrder)) {
+          case 1:
+              finalURL += "&tab=newest";
+              break;
+          case 2:
+              finalURL += "&tab=active";
+              break;
+          case 3:
+              finalURL += "&tab=votes";
+              break;
+          default:
+              break;
+      }
       openTab(finalURL, items.shouldOpenInSameTab);
     });
 });
