@@ -99,8 +99,6 @@ function setInitialState() {
         document.getElementById('answer_type').options.selectedIndex = items.answerTypeFilter;
         document.getElementById('custom_filter').value = items.customFilter;
 
-        $(":input").attr('disabled', false);
-
         $("#add_suggestion_filter").click(function() {
             addFilterSuggestionDiv(true);
             setTimeout(function() {
@@ -156,6 +154,7 @@ function setInitialState() {
             });
         });
         
+        $(":input").not("#default_url").attr('disabled', false);
     });
 }
 
