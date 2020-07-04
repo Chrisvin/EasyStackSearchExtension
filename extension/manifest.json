@@ -2,8 +2,8 @@
     "manifest_version": 2,
     "version": "1.6.0",
     
-    "name": "Stack Overflow Search",
     "description" : "A lightweight extension to make searching Stack Overflow quick & easy.",
+    "name": "Easy Stack Search",
     "author": "Chrisvin",
 
     "icons": {

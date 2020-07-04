@@ -40,7 +40,7 @@ function getFilterString(
 chrome.runtime.onInstalled.addListener(function() {
     chrome.contextMenus.create({
         id: "stack_overflow_search_context_id",
-        title: "Search in Stack Overflow",
+        title: "Search via Easy Stack Search",
         type: 'normal',
         contexts: ['selection'],
     });
