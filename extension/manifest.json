@@ -4,6 +4,7 @@
     
     "name": "Stack Overflow Search",
     "description" : "A lightweight extension to make searching Stack Overflow quick & easy.",
+    "author": "Chrisvin",
 
     "icons": {
         "16": "icons/16.png",
