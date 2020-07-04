@@ -42,7 +42,8 @@ function addFilterSuggestionDiv() {
             document.getElementById("filter_suggestion_" + i).value = document.getElementById("filter_suggestion_" + (i+1)).value;
             mFilterSuggestions[i] = mFilterSuggestions[i+1];
         }
-        document.getElementById("filter_suggestion_" + (len-1)).value = "";
+        $("#filter_suggestion_div_" + (len-1)).remove();
+        count.val(parseInt(count.val()) - 1).trigger('change');
         mFilterSuggestions[len-1] = "";
         saveFilterSuggestions();
     });
