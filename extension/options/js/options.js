@@ -53,6 +53,7 @@ function addFilterSuggestionDiv() {
         class: "form-control",
         value: mFilterSuggestions[index],
         id: "filter_suggestion_" + index,
+        placeholder:  "Filter Suggestion " + (index+1)
     });
     filterSuggestion.on('input', function() {
         mFilterSuggestions[index] = this.value;
@@ -60,7 +61,11 @@ function addFilterSuggestionDiv() {
     });
 
     $("#filter_suggestion_container").append(
-        $('<div>', { class: "c-inline", id:"filter_suggestion_div_"+index, style:"margin-top: 0.5rem;"}).append(
+        $('<div>', {
+            class: "c-inline",
+            id: "filter_suggestion_div_" + index,
+            style: "margin-top: 0.5rem;"
+        }).append(
             img, filterSuggestion
         )
     );
