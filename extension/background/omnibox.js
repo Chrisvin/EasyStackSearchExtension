@@ -91,7 +91,7 @@ chrome.omnibox.onInputChanged.addListener(
         items.answerTypeFilter, 
         items.customFilter);
       var defaultDescription = filterString + query;
-      if (defaultDescription) {
+      if (defaultDescription == "") {
         defaultDescription = " ";
       }
       chrome.omnibox.setDefaultSuggestion({ description: defaultDescription });
