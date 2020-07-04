@@ -79,6 +79,7 @@ function addFilterSuggestionDiv(setFocusOnAdd = false) {
 
 function setInitialState() {
     chrome.storage.sync.get({
+        baseUrl: "https://www.stackoverflow.com/search?q=",
         shouldOpenInSameTab: true,
         questionsWithCodeFilter: false,
         communityWikisFilter: false,
@@ -125,6 +126,26 @@ function setInitialState() {
             }
         }
         saveFilterSuggestions(false);
+
+        $("#default_url").val(items.baseUrl);
+        $("#default_url_button").click(function() {
+            if ($(this).html() == "Edit") {
+                $("#default_url").attr('disabled', false);
+                $("#default_url").focus();
+                $("#default_url_button").html("Save");
+            } else {
+                $("#default_url").attr('disabled', true);
+                $("#default_url_button").html("Edit");
+                chrome.storage.sync.set({
+                    baseUrl: $("#default_url").val()
+                }, function() {
+                    showSavedAlert();
+                });
+            }
+            setTimeout(() => {
+                $(this).blur();
+            }, 250);
+        });
     });
 }
 
