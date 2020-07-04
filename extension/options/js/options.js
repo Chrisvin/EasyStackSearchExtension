@@ -81,6 +81,7 @@ function setInitialState() {
     chrome.storage.sync.get({
         baseUrl: "https://www.stackoverflow.com/search?q=",
         shouldOpenInSameTab: true,
+        sortOrder: 0,
         questionsWithCodeFilter: false,
         communityWikisFilter: false,
         excludeDuplicateQuestionsFilter: false,
@@ -93,6 +94,9 @@ function setInitialState() {
         } else {
             document.getElementById('new_tab_result').checked = true;
         }
+
+        document.getElementById('sort_order').value = items.sortOrder;
+
         document.getElementById('question_with_code').checked = items.questionsWithCodeFilter;
         document.getElementById('community_wikis').checked = items.communityWikisFilter;
         document.getElementById('exclude_duplicate_questions').checked = items.excludeDuplicateQuestionsFilter;
@@ -163,6 +167,13 @@ function setListeners() {
         chrome.storage.sync.set({
             shouldOpenInSameTab: $("#same_tab_result").is(":checked")
         }, function(items) {
+            showSavedAlert();
+        });
+    });
+    $("#sort_order").on("change", function() {
+        chrome.storage.sync.set({
+            sortOrder: this.value
+        }, function() {
             showSavedAlert();
         });
     });
