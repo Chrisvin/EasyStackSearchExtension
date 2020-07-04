@@ -102,6 +102,9 @@ function setInitialState() {
 
         $("#add_suggestion_filter").click(function() {
             addFilterSuggestionDiv(true);
+            setTimeout(function() {
+                $("#add_suggestion_filter").blur();
+            }, 250);
         });
 
         $("#filter_suggestion_count").on("change", function() {
