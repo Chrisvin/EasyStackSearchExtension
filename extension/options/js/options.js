@@ -26,7 +26,7 @@ function saveFilterSuggestions(showAlert = true) {
     }, 500);
 }
 
-function addFilterSuggestionDiv() {
+function addFilterSuggestionDiv(setFocusOnAdd = false) {
     let count = $("#filter_suggestion_count");
     var index = parseInt(count.val());
 
@@ -71,6 +71,10 @@ function addFilterSuggestionDiv() {
     );
 
     count.val(parseInt(count.val()) + 1).trigger('change');
+
+    if (setFocusOnAdd) {
+        $("#filter_suggestion_" + index).focus();
+    }
 }
 
 function setInitialState() {
@@ -97,7 +101,7 @@ function setInitialState() {
         $(":input").attr('disabled', false);
 
         $("#add_suggestion_filter").click(function() {
-            addFilterSuggestionDiv();
+            addFilterSuggestionDiv(true);
         });
 
         $("#filter_suggestion_count").on("change", function() {
