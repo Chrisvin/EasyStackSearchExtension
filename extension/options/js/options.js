@@ -161,7 +161,7 @@ function setListeners() {
         clearTimeout(customFilterTimeout);
         customFilterTimeout = setTimeout(function() {
             chrome.storage.sync.set({
-                customFilter: this.value
+                customFilter: $("#custom_filter").val()
             }, function() {
                 showSavedAlert();
             });
