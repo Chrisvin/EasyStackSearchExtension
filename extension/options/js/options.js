@@ -146,6 +146,16 @@ function setInitialState() {
                 $(this).blur();
             }, 250);
         });
+
+        $("#default_url_revert").click(function() {
+            $("#default_url").val("https://www.stackoverflow.com/search?q=");
+            chrome.storage.sync.set({
+                baseUrl: "https://www.stackoverflow.com/search?q="
+            }, function() {
+                showSavedAlert();
+            });
+        });
+        
     });
 }
 
