@@ -90,7 +90,11 @@ chrome.omnibox.onInputChanged.addListener(
         items.excludeDuplicateQuestionsFilter, 
         items.answerTypeFilter, 
         items.customFilter);
-      chrome.omnibox.setDefaultSuggestion({ description: filterString + query });
+      var defaultDescription = filterString + query;
+      if (defaultDescription) {
+        defaultDescription = " ";
+      }
+      chrome.omnibox.setDefaultSuggestion({ description: defaultDescription });
 
       var suggestions = [];
       var suggestion = "";
