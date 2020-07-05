@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "version": "2.1.0",
+    "version": "2.1.1",
     
     "name": "Easy Stack Search",
     "description" : "A lightweight extension that makes searching Stack sites like StackOverflow quick & easy.",
