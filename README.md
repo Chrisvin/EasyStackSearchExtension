@@ -4,7 +4,13 @@
 
 Easy Stack Search is a lightweight extension that makes searching Stack sites like StackOverflow quick & easy.
 
-### Feature list: 
+## Supported browsers
+| Browser | Version |
+| :-: | :-: |
+| [Google Chrome](https://chrome.google.com/webstore/detail/easy-stack-search/clcbdgojnikjpnplbflmmckolehpenil?hl=en-GB&authuser=0) | Chrome 35+ |
+| Microsoft Edge | Edge 79+ |
+
+## Feature list: 
 1. Use "s" Omnibox command to search in stackoverflow from chrome address-bar. 
 <br>For example - Type "s", press space/tab, then type "SharedPreferences" and press enter to bring up the search results for "SharedPreferences" in Stack Overflow.
 
