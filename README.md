@@ -27,8 +27,7 @@ Easy Stack Search is a lightweight extension that makes searching Stack sites li
 
 7. Change default URL to search other sites.
 
-### NOTE: 
-To avoid any CAPTCHA blockades, sign into your StackExchange account.
+<b>NOTE:</b> To avoid any CAPTCHA blockades, sign into your StackExchange account.
 
 ## Bugs and Feedback
 For bugs, suggestions and questions please use [Github Issues](https://github.com/Chrisvin/EasyStackSearchExtension/issues).
