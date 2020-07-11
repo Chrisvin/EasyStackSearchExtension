@@ -1,8 +1,6 @@
 name: ReleaseZipCI
 
 on:
-  push:
-    branches: [ master ]
   release:
     types: [ created ]
 
@@ -19,9 +17,7 @@ jobs:
 
     - run: rm ./extension/manifest.json
     - run: cp ./alternates/firefox-manifest.json ./extension/manifest.json
-    - run: cd ./extension
-    - run: find . -type f -exec sed -i 's/chrome/browser/g' {} \;
-    - run: cd ..
+    - run: find ./extension -type f -exec sed -i 's/chrome/browser/g' {} \;
 
     - name: Upload Firefox Extension as a build artifact
       uses: actions/upload-artifact@v2
