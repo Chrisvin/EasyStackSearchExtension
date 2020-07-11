@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "version": "2.1.0",
+
+    "applications": {
+        "gecko": {
+            "id": "chrisvin@EasyStackSearch.github"
+        }
+    },
+    
+    "name": "Easy Stack Search",
+    "description" : "A lightweight extension that makes searching Stack sites like StackOverflow quick & easy.",
+    "author": "Chrisvin",
+    "homepage_url": "https://github.com/Chrisvin/EasyStackSearchExtension",
+
+    "icons": {
+        "16": "icons/16.png",
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png",
+        "96": "icons/96.png",
+        "128": "icons/128.png"
+    },
+    
+    "omnibox": { 
+        "keyword" : "s"
+    },
+
+    "background": {
+        "scripts": [
+            "background/omnibox.js",
+            "background/contextMenus.js"
+        ]
+    },
+
+    "options_ui": {
+        "page":"options/options.html",
+        "open_in_tab":true
+    },
+
+    "permissions": [
+        "storage",
+        "contextMenus"
+    ]    
+}
