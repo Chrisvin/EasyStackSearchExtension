@@ -17,14 +17,11 @@ jobs:
         name: chromium-extension
         path: ./extension/
 
-    - uses: actions/checkout@master
-    - name: Replace all instances of 'chrome' with 'browser'
-      uses: jacobtomlinson/gha-find-replace@master
-      with:
-        find: "chrome"
-        replace: "browser"
-        include: "./extension/"
-    - uses: actions/checkout@v2
+    - run: rm ./extension/manifest.json
+    - run: cp ./alternates/firefox-manifest.json ./extension/manifest.json
+    - run: cd ./extension
+    - run: sed -i 's/chrome/browser/g' *
+
     - name: Upload Firefox Extension as a build artifact
       uses: actions/upload-artifact@v2
       with: 
