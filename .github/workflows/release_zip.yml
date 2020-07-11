@@ -20,7 +20,8 @@ jobs:
     - run: rm ./extension/manifest.json
     - run: cp ./alternates/firefox-manifest.json ./extension/manifest.json
     - run: cd ./extension
-    - run: sed -i 's/chrome/browser/g' *
+    - run: find . -type f -exec sed -i 's/chrome/browser/g' {} \;
+    - run: cd ..
 
     - name: Upload Firefox Extension as a build artifact
       uses: actions/upload-artifact@v2
