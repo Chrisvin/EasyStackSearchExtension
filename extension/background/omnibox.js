@@ -37,7 +37,15 @@ function getFilterString(
 }
 
 function openTab(searchUrl, shouldOpenInSameTab) {
-  chrome.tabs.getSelected(null, function(tab) {
+  chrome.tabs.query({
+    currentWindow: true,
+    active: true
+  }, function(tabs) {
+    if (tabs.length == 0) {
+      return;
+    }
+    
+    let tab = tabs[0];
     if (shouldOpenInSameTab) { 
         chrome.tabs.update(tab.id, {url: searchUrl});
     } else {
