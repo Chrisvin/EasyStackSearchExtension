@@ -1,6 +1,8 @@
 name: ReleaseZipCI
 
 on:
+  push:
+    branches: [ master ]
   release:
     types: [ created ]
 
@@ -9,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Upload a Build Artifact
+    - name: Upload Chromium Extension as a build artifact
       uses: actions/upload-artifact@v2
       with: 
-        name: extension
+        name: chromium-extension
         path: ./extension/
