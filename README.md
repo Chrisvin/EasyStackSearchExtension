@@ -8,6 +8,7 @@ Easy Stack Search is a lightweight extension that makes searching Stack sites li
 | Browser | Version |
 | :-: | :-: |
 | [Google Chrome](https://chrome.google.com/webstore/detail/easy-stack-search/clcbdgojnikjpnplbflmmckolehpenil?hl=en-GB&authuser=0) | Chrome 35+ |
+| [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/easy-stack-search/) | Firefox 52+ |
 | [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/easy-stack-search/knoepfamajmogacbinpkanmenheepbpf) | Edge 79+ |
 | Opera | All versions |
 
